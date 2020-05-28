@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/env bash
 
 declare -a dicts=("docs" "pictures" "music")
 # The UUID of the HDD
@@ -25,7 +25,8 @@ fi
 echo "[backup] mounted @ ${mnt}/"
 
 for dict in "${dicts[@]}"; do
-    rsync -ah --stats "${home}/${dict}" "${mnt}/"
+    echo "[backup] now copying ${dict}"
+    rsync -ah --info=progress2 "${home}/${dict}" "${mnt}/"
 done
 
 udisksctl unmount -b "${disk_path}" &> /dev/null
