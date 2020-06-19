@@ -2,7 +2,7 @@
 
 folder="$(xdg-user-dir MUSIC)/sets/"
 
-for filepath in $folder*.mp3; do
+for filepath in "$folder"*.mp3; do
     name=$(basename "${filepath}")
     artist=$(echo "${name}" | cut -d"@" -f1 | xargs)
     title=$(echo "${name}" | cut -d"@" -f2 | xargs)
