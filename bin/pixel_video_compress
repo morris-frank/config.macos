@@ -60,6 +60,7 @@ for input_file in "$INPUT_FOLDER"/*.mp4; do
   # Check if the conversion was successful
   if [ $? -eq 0 ]; then
     echo "Successfully converted: $input_file -> $output_file"
+    trash "$input_file"
   else
     echo "Failed to convert: $input_file"
   fi
