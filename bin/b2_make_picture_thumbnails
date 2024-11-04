@@ -1,0 +1,30 @@
+#!/bin/bash
+
+# Define the source and destination directories
+SOURCE_DIR="/Users/mfr/b2/morris-cloud/pictures"
+DEST_DIR="/Users/mfr/b2/morris-thumbnails"
+THUMB_SUFFIX="_thumb"
+THUMB_SIZE="100x100"
+
+# Create the destination directory if it doesn't exist
+mkdir -p "$DEST_DIR"
+
+# Find all directories in the source directory containing jpg files
+find "$SOURCE_DIR" -type f -iname '*.jpg' -exec dirname {} \; | sort -u | while read -r DIR; do
+    # Replicate the folder structure in the destination directory
+    RELATIVE_DIR="${DIR#$SOURCE_DIR}"
+    TARGET_DIR="$DEST_DIR$RELATIVE_DIR"
+    mkdir -p "$TARGET_DIR"
+
+    # Process each jpg file in the current directory
+    find "$DIR" -maxdepth 1 -type f -iname '*.jpg' | while read -r JPG_FILE; do
+        FILE_NAME=$(basename "$JPG_FILE")
+        THUMB_FILE="$TARGET_DIR/${FILE_NAME%.*}${THUMB_SUFFIX}.jpg"
+        
+        if [[ ! -f "$THUMB_FILE" ]]; then
+            magick convert "$JPG_FILE" -resize "$THUMB_SIZE" "$THUMB_FILE"
+            echo "Thumbnail created: $THUMB_FILE"
+        fi
+    done
+done
+

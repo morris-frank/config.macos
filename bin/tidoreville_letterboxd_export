@@ -1,0 +1,60 @@
+#!/usr/bin/env python
+
+# The script connects to the tidoreville server via SSH to list and filter video
+# files in the jellyfin directory. It extracts relevant information such as movie
+# titles and release years from the filenames, displays the total count of movies
+# found, and saves the organized data into a CSV file for upload to letterboxd.
+
+
+from pathlib import Path
+
+import pandas as pd
+import paramiko
+
+
+def ssh_ls(destination: str, path: str, port: int = 22, key_file_path: str = "/Users/mfr/.ssh/id_rsa_morris"):
+    try:
+        username, hostname = destination.split("@")
+        ssh = paramiko.SSHClient()
+        ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
+        private_key = paramiko.RSAKey(filename=key_file_path)
+        ssh.connect(hostname, port=port, username=username, pkey=private_key)
+        stdin, stdout, stderr = ssh.exec_command(f"find {path} -maxdepth 1 -type f")
+        files = stdout.read().decode().splitlines()
+        ssh.close()
+
+        return files
+
+    except Exception as e:
+        print(f"An error occurred: {e}")
+        return []
+
+
+def is_not_hidden(f: Path):
+    return not f.name.startswith(".") and not f.name.startswith("_")
+
+
+def is_video_file(f: Path):
+    return f.suffix in [".mp4", ".mkv", ".avi"]
+
+
+def extract_title_year(f: Path):
+    year, title = None, []
+    for i, part in enumerate(f.name.split(".")):
+        if i > 0 and part.isdigit() and 1900 < int(part) < 2030:
+            year = part
+            break
+        title.append(part)
+    title = " ".join(title)
+    return {"Title": title, "Year": int(year) if year else None}
+
+
+files = ssh_ls("mfr@tidoreville.local", "/mnt/tidoreville_hdd/Movies")
+video_files = list(map(extract_title_year, filter(is_video_file, filter(is_not_hidden, map(Path, files)))))
+
+RED_TERM = "\033[91m"
+YELLOW_TERM = "\033[93m"
+END_TERM = "\033[0m"
+print(f"{YELLOW_TERM}Found {RED_TERM}{len(video_files)} {YELLOW_TERM}movies{END_TERM}")
+
+pd.DataFrame(video_files).sort_values(by=["Year", "Title"]).to_csv("/Users/mfr/Downloads/movies.csv", index=False)

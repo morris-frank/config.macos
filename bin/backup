@@ -1,0 +1,21 @@
+#!/bin/bash
+rclone copy "/Users/mfr/b2/morris-cloud/" B2:morris-cloud  -P
+rclone copy "/Users/mfr/b2/morris-media/" B2:morris-media  -P
+rclone copy "/Users/mfr/b2/motionstills/" B2:motionstills  -P
+rclone sync "/Users/mfr/b2/morris-museum/" B2:morris-museum  -P
+
+# check if  local host tidoreville.local exists
+if ping -c 1 tidoreville.local &> /dev/null
+then
+	echo "Syncing pictures to tidoreville.local"
+	rclone copy "/Users/mfr/b2/morris-cloud/pictures/" tidoreville:/mnt/tidoreville_hdd/Pictures  -P
+fi
+# rclone sync "/Users/mfr/b2/morris-museum/" B2:morris-museum  -P
+
+if [ -d "/Volumes/Morris WD/" ] && [ -w "/Volumes/Morris WD/" ]; then
+	rclone sync "/Users/mfr/b2/morris-cloud/" "/Volumes/Morris WD/morris-cloud/"  -P
+	rclone copy "/Users/mfr/b2/morris-media/" "/Volumes/Morris WD/morris-media/"  -P
+	rclone copy "/Users/mfr/b2/motionstills/" "/Volumes/Morris WD/motionstills/"  -P
+	rclone sync "/Users/mfr/b2/morris-museum/" "/Volumes/Morris WD/morris-museum/"  -P
+fi
+

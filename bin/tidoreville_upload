@@ -1,0 +1,17 @@
+#!/bin/bash
+
+if ! ping -c 1 tidoreville.local &> /dev/null
+then
+    echo "tidoreville.local not found"
+    exit 1
+fi
+
+# check if local folder exists
+if [ ! -d "/Users/mfr/Downloads/torrents" ]
+then
+    echo "Folder /Users/mfr/Downloads/torrents does not exist"
+    exit 1
+fi
+
+rclone copy "/Users/mfr/Downloads/torrents" tidoreville:/mnt/tidoreville_hdd/Movies  -P --include "*.mp4" --include "*.mkv" --include "*.srt" -vv
+

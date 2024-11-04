@@ -1,0 +1,66 @@
+#!/bin/bash
+
+# Check if a folder path is provided
+if [ -z "$1" ]; then
+  echo "Usage: $0 <folder_path>"
+  exit 1
+fi
+
+# Get the folder path from the argument
+INPUT_FOLDER="$1"
+
+# Check if the provided path is a valid directory
+if [ ! -d "$INPUT_FOLDER" ]; then
+  echo "Error: $INPUT_FOLDER is not a valid directory"
+  exit 1
+fi
+
+# List all mp4 files with their file sizes
+echo "The following .mp4 files were found in the folder:"
+for input_file in "$INPUT_FOLDER"/*.mp4; do
+  # Skip if no mp4 files are found
+  [ -e "$input_file" ] || continue
+
+  # Skip files that already have .compressed in their name or don't start with PXL
+  if [[ "$input_file" == *.compressed.mp4 || ! "$(basename "$input_file")" == PXL* ]]; then
+    continue
+  fi
+  
+  # Get the file size
+  file_size=$(du -h "$input_file" | cut -f1)
+  echo "$(basename "$input_file") - $file_size"
+done
+
+# Ask for confirmation to proceed
+read -p "Do you want to proceed with the conversion of these files? (y/n): " confirm
+if [[ "$confirm" != "y" && "$confirm" != "Y" ]]; then
+  echo "Conversion cancelled."
+  exit 0
+fi
+
+# Loop through all mp4 files in the folder
+for input_file in "$INPUT_FOLDER"/*.mp4; do
+  # Skip if no mp4 files are found
+  [ -e "$input_file" ] || continue
+
+  # Skip files that already have .compressed in their name or don't start with PXL
+  if [[ "$input_file" == *.compressed.mp4 || ! "$(basename "$input_file")" == PXL* ]]; then
+    continue
+  fi
+
+  # Get the base name of the file (without extension)
+  base_name="$(basename "$input_file" .mp4)"
+
+  # Define the output file name with the suffix .compressed.mp4
+  output_file="${INPUT_FOLDER}/${base_name}.compressed.mp4"
+
+  # Run ffmpeg to convert the video
+  ffmpeg -i "$input_file" -c:v h264_videotoolbox -b:v 6000k -profile:v main -allow_sw false -c:a aac -b:a 128k "$output_file"
+
+  # Check if the conversion was successful
+  if [ $? -eq 0 ]; then
+    echo "Successfully converted: $input_file -> $output_file"
+  else
+    echo "Failed to convert: $input_file"
+  fi
+done
