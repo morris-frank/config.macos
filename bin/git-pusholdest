@@ -1,0 +1,30 @@
+#!/bin/bash
+
+# This script pushes the oldest unpushed commit to the remote branch.
+
+current_branch=$(git branch --show-current)
+if [ -z "$current_branch" ]; then
+  echo "Error: You are in a detached HEAD state." >&2
+  exit 1
+fi
+
+remote=$(git config branch."$current_branch".remote)
+if [ -z "$remote" ]; then
+  echo "Error: No remote configured for branch '$current_branch'." >&2
+  exit 1
+fi
+
+remote_branch=$(git config branch."$current_branch".merge)
+remote_branch=${remote_branch#refs/heads/}
+if [ -z "$remote_branch" ]; then
+  echo "Error: No remote branch configured for branch '$current_branch'." >&2
+  exit 1
+fi
+
+last_commit=$(git log --reverse --oneline "$remote"/"$remote_branch"..HEAD | head -n 1 | awk '{print $1}')
+if [ -z "$last_commit" ]; then
+    echo "Error: No uncommitted changes." >&2
+fi
+echo "uncommitted: $last_commit"
+
+git push "$remote" "$last_commit":"$remote_branch"

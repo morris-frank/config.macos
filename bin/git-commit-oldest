@@ -1,2 +1,0 @@
-#!/bin/bash
-git push origin $(git log --reverse --oneline origin/main..HEAD | head -n 1 | awk '{print $1}'):main
