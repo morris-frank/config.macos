@@ -1,4 +1,10 @@
 #!/bin/zsh
+
+# This script analyzes the installed applications all executables on the path
+# and all casks and formulae installed with brew. It finds apps that could be
+# installed via brew, but were not, and casks and formulae that are installed
+# via brew, but are not used.
+
 clear
 autoload bashcompinit
 bashcompinit
