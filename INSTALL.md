@@ -10,7 +10,7 @@
 ```bash
 brew install zsh youtube_dl wakeonlan rclone pnpm imagemagick ghostscript git tmux htop trash postgresql@15
 brew install --cask bluesnooze keepingyouawake localsend gimp syntax_highlight the_unarchiver
-brew install --cask visual_studio_code transmission spotify rectangle macdroid iina google_chrome android_studio
+brew install --cask visual_studio_code transmission spotify rectangle macdroid iina google_chrome android_studio ibrew2
 ```
 
 
