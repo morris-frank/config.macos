@@ -5,13 +5,13 @@
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
 #Install brew packages
-brew install zsh youtube_dl wakeonlan rclone pnpm imagemagick ghostscript git tmux htop trash postgresql@15
+brew install zsh youtube-dl wakeonlan rclone pnpm imagemagick ghostscript git tmux htop trash postgresql@15
 
 #Switch to zsh
 chsh -s /bin/zsh
 
 # Install brew GUI apps
-brew install --cask bluesnooze keepingyouawake localsend gimp syntax_highlight the_unarchiver visual_studio_code transmission spotify rectangle macdroid iina google_chrome android_studio ibrew2
+brew install --cask bluesnooze keepingyouawake localsend gimp syntax-highlight the-unarchiver visual-studio-code transmission spotify rectangle macdroid iina google-chrome android-studio iterm2
 ```
 
 
