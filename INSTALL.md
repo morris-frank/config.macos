@@ -1,16 +1,17 @@
-# initial setups
-
-1. Install brew
-2. Set zsh as default
-3. install micromamba
-
-
-## brew
+# Install steps
 
 ```bash
+# Install bash
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+#Install brew packages
 brew install zsh youtube_dl wakeonlan rclone pnpm imagemagick ghostscript git tmux htop trash postgresql@15
-brew install --cask bluesnooze keepingyouawake localsend gimp syntax_highlight the_unarchiver
-brew install --cask visual_studio_code transmission spotify rectangle macdroid iina google_chrome android_studio ibrew2
+
+#Switch to zsh
+chsh -s /bin/zsh
+
+# Install brew GUI apps
+brew install --cask bluesnooze keepingyouawake localsend gimp syntax_highlight the_unarchiver visual_studio_code transmission spotify rectangle macdroid iina google_chrome android_studio ibrew2
 ```
 
 
