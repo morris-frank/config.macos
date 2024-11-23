@@ -11,7 +11,10 @@ brew install zsh youtube-dl wakeonlan rclone pnpm imagemagick ghostscript git tm
 chsh -s /bin/zsh
 
 # Install brew GUI apps
-brew install --cask bluesnooze keepingyouawake localsend gimp syntax-highlight the-unarchiver visual-studio-code transmission spotify rectangle macdroid iina google-chrome android-studio iterm2
+brew install --cask bluesnooze keepingyouawake localsend gimp syntax-highlight the-unarchiver visual-studio-code transmission spotify rectangle macdroid iina google-chrome android-studio iterm2 mullvadvpn
+
+# Install micromamba 
+"${SHELL}" <(curl -L micro.mamba.pm/install.sh)
 ```
 
 
@@ -35,6 +38,9 @@ alias ipy='ipython '
 alias n='nano '
 alias py='python '
 alias q='exit'
+if ! command -v mamba &>/dev/null; then
+  alias mamba='micromamba'
+fi
 
 
 # Python
