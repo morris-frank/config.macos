@@ -5,7 +5,7 @@
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
 #Install brew packages
-brew install zsh youtube-dl wakeonlan rclone pnpm imagemagick ghostscript git tmux htop trash postgresql@15
+brew install zsh youtube-dl wakeonlan rclone pnpm imagemagick ghostscript git tmux htop trash postgresql@15 node
 
 #Switch to zsh
 chsh -s /bin/zsh
