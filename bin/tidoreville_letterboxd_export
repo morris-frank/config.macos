@@ -12,7 +12,7 @@ import pandas as pd
 import paramiko
 
 
-def ssh_ls(destination: str, path: str, port: int = 22, key_file_path: str = "/Users/mfr/.ssh/id_rsa_morris"):
+def ssh_ls(destination: str, path: str, port: int = 22, key_file_path: str = "/Users/mfr/.ssh/id_ed25519"):
     try:
         username, hostname = destination.split("@")
         ssh = paramiko.SSHClient()
@@ -49,7 +49,7 @@ def extract_title_year(f: Path):
     return {"Title": title, "Year": int(year) if year else None}
 
 
-files = ssh_ls("mfr@tidoreville.local", "/mnt/tidoreville_hdd/Movies")
+files = ssh_ls("mfr@tidoreville.local", "/mnt/TidoreFlix/Movies")
 video_files = list(map(extract_title_year, filter(is_video_file, filter(is_not_hidden, map(Path, files)))))
 
 RED_TERM = "\033[91m"
