@@ -1,0 +1,54 @@
+#!/bin/bash
+# Script to encode all video files in the current directory for mobile viewing
+# Creates mobile_encodings folder and places optimized videos there
+
+# Create output directory if it doesn't exist
+mkdir -p mobile_encodings
+
+# Video file extensions to look for
+video_extensions=("mkv" "mp4" "avi" "mov" "wmv" "flv" "webm" "m4v" "mpg" "mpeg" "ts")
+
+# Counter for processed files
+count=0
+
+# Function to encode a video file
+encode_video() {
+    input_file="$1"
+    filename=$(basename -- "$input_file")
+    filename_noext="${filename%.*}"
+    output_file="mobile_encodings/${filename_noext}.mp4"
+
+    echo "Processing: $input_file"
+    echo "Output will be: $output_file"
+
+    ffmpeg -i "$input_file" \
+        -c:v libx264 -preset medium -crf 23 \
+        -vf "scale='min(1920,iw)':'min(1080,ih)'" \
+        -c:a aac -b:a 192k \
+        "$output_file"
+
+    if [ $? -eq 0 ]; then
+        echo "Successfully encoded: $output_file"
+        return 0
+    else
+        echo "Error encoding: $input_file"
+        return 1
+    fi
+}
+
+# Process all video files
+for ext in "${video_extensions[@]}"; do
+    # Find all files with the current extension (case insensitive)
+    find . -type f -name "*.$ext" -o -name "*.$(echo $ext | tr '[:lower:]' '[:upper:]')" | while read -r file; do
+        # Skip files that are in the mobile_encodings directory
+        if [[ "$file" != *"./mobile_encodings/"* ]]; then
+            encode_video "$file"
+            if [ $? -eq 0 ]; then
+                count=$((count + 1))
+            fi
+        fi
+    done
+done
+
+echo "Encoding complete. Processed $count files."
+echo "Mobile-optimized videos are in the 'mobile_encodings' folder."

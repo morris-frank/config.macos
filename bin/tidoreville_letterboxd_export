@@ -17,7 +17,7 @@ def ssh_ls(destination: str, path: str, port: int = 22, key_file_path: str = "/U
         username, hostname = destination.split("@")
         ssh = paramiko.SSHClient()
         ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
-        private_key = paramiko.RSAKey(filename=key_file_path)
+        private_key = paramiko.Ed25519Key(filename=key_file_path)
         ssh.connect(hostname, port=port, username=username, pkey=private_key)
         stdin, stdout, stderr = ssh.exec_command(f"find {path} -maxdepth 1 -type f")
         files = stdout.read().decode().splitlines()
@@ -46,7 +46,7 @@ def extract_title_year(f: Path):
             break
         title.append(part)
     title = " ".join(title)
-    return {"Title": title, "Year": int(year) if year else None}
+    return {"Title": title, "Year": f"{int(year)}" if year else ""}
 
 
 files = ssh_ls("mfr@tidoreville.local", "/mnt/TidoreFlix/Movies")
@@ -58,3 +58,4 @@ END_TERM = "\033[0m"
 print(f"{YELLOW_TERM}Found {RED_TERM}{len(video_files)} {YELLOW_TERM}movies{END_TERM}")
 
 pd.DataFrame(video_files).sort_values(by=["Year", "Title"]).to_csv("/Users/mfr/Downloads/movies.csv", index=False)
+print(f"{YELLOW_TERM}Saved to {RED_TERM}/Users/mfr/Downloads/movies.csv{END_TERM}")
