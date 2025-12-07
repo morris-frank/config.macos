@@ -1,0 +1,181 @@
+{
+  "workbench.colorTheme": "Ayu Mirage Bordered",
+  "workbench.preferredLightColorTheme": "Ayu Light Bordered",
+  "workbench.preferredDarkColorTheme": "Ayu Mirage Bordered",
+  "editor.inlineSuggest.enabled": true,
+  "security.workspace.trust.untrustedFiles": "open",
+  "git.autofetch": true,
+  "[python]": {
+    "editor.defaultFormatter": "ms-python.black-formatter"
+  },
+  "black-formatter.args": [
+    "--line-length=140"
+  ],
+  "prettier.printWidth": 140,
+  "editor.rulers": [
+    26,
+    80,
+    140
+  ],
+  "editor.fontFamily": "Source Code Pro",
+  "editor.fontSize": 13,
+  "editor.renderWhitespace": "all",
+  "explorer.autoReveal": false,
+  "workbench.iconTheme": "ayu",
+  "editor.copyWithSyntaxHighlighting": false,
+  "workbench.tree.renderIndentGuides": "none",
+  "files.defaultLanguage": "${activeEditorLanguage}",
+  "git.openRepositoryInParentFolders": "never",
+  "files.exclude": {
+    "**/__pycache__": true,
+    "work-dir": true,
+    "**/cached": true,
+    "**/.pytest_cache": true,
+    "**/*egg-info": true,
+    "**/.trunk/*actions/": true,
+    "**/.trunk/*logs/": true,
+    "**/.trunk/*notifications/": true,
+    "**/.trunk/*out/": true,
+    "**/.trunk/*plugins/": true
+  },
+  "jupyter.askForKernelRestart": false,
+  "explorer.confirmDragAndDrop": false,
+  "git.enableSmartCommit": true,
+  "python.defaultInterpreterPath": "~/mamba/envs/optical_age/bin/python",
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "typescript.updateImportsOnFileMove.enabled": "never",
+  "javascript.updateImportsOnFileMove.enabled": "never",
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[html]": {
+    "editor.defaultFormatter": "vscode.html-language-features"
+  },
+  "[css]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "css.validate": false,
+  "less.validate": false,
+  "scss.validate": false,
+  "jupyter.widgetScriptSources": [
+    "jsdelivr.com",
+    "unpkg.com"
+  ],
+  "interactiveWindow.executeWithShiftEnter": true,
+  "redhat.telemetry.enabled": false,
+  "dart.flutterHotReloadOnSave": "allIfDirty",
+  "dart.debugExternalPackageLibraries": false,
+  "dart.debugSdkLibraries": false,
+  "cursor.cpp.disabledLanguages": [
+    "plaintext",
+    "markdown",
+    "scminput"
+  ],
+  "[svg]": {
+    "editor.defaultFormatter": "jock.svg"
+  },
+  "prettier.trailingComma": "none",
+  "formatFiles.runOrganizeImports": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll": "explicit",
+    "source.organizeImports": "always",
+    "source.sortMembers": "explicit"
+  },
+  "editor.formatOnSave": true,
+  "[markdown]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "svg.preview.mode": "svg",
+  "cursor.cpp.enablePartialAccepts": true,
+  "breadcrumbs.icons": false,
+  "todohighlight.keywords": [
+    {
+      "text": "DEPRECATED:",
+      "color": "#7c2d26",
+      "backgroundColor": "#FFDAD699"
+    }
+  ],
+  "todohighlight.include": [
+    "**/*.js",
+    "**/*.jsx",
+    "**/*.ts",
+    "**/*.tsx",
+    "**/*.html",
+    "**/*.php",
+    "**/*.css",
+    "**/*.scss",
+    "**/*.dart",
+    "**/*.py"
+  ],
+  "todohighlight.defaultStyle": {
+    "fontStyle": "normal",
+    "fontWeight": "bold"
+  },
+  "dart.showTodos": true,
+  "files.watcherExclude": {
+    "**/.trunk/*actions/": true,
+    "**/.trunk/*logs/": true,
+    "**/.trunk/*notifications/": true,
+    "**/.trunk/*out/": true,
+    "**/.trunk/*plugins/": true
+  },
+  "editor.wrappingStrategy": "advanced",
+  "html.format.wrapAttributes": "force-aligned",
+  "svg.minify.cleanupIDs": true,
+  "svg.minify.collapseGroups": true,
+  "svg.minify.cleanupNumericValues": true,
+  "svg.minify.convertStyleToAttrs": true,
+  "svg.minify.inlineStyles": true,
+  "svg.minify.cleanupAttrs": true,
+  "svg.minify.cleanupEnableBackground": true,
+  "prettier.singleAttributePerLine": true,
+  "[shellscript]": {
+    "editor.defaultFormatter": "foxundermoon.shell-format"
+  },
+  "workbench.sideBar.location": "right",
+  "workbench.editor.enablePreview": false,
+  "workbench.secondarySideBar.showLabels": false,
+  "python.terminal.activateEnvInCurrentTerminal": true,
+  "terminal.integrated.inheritEnv": false,
+  "dart.documentation": "summary",
+  "cursor.windowSwitcher.sidebarHoverCollapsed": true,
+  "workbench.editorAssociations": {
+    "*.svg": "default"
+  },
+  "terminal.integrated.scrollback": 5000,
+  "[dockercompose]": {
+    "editor.insertSpaces": true,
+    "editor.tabSize": 2,
+    "editor.autoIndent": "advanced",
+    "editor.defaultFormatter": "redhat.vscode-yaml"
+  },
+  "[github-actions-workflow]": {
+    "editor.defaultFormatter": "redhat.vscode-yaml"
+  },
+  "git.pruneOnFetch": true,
+  "dart.previewFlutterUiGuides": true,
+  "gitlens.plusFeatures.enabled": false,
+  "gitlens.currentLine.format": "${author} • ${agoOrDate}",
+  "gitlens.hovers.currentLine.over": "line",
+  "cSpell.userWords": [
+    "peau"
+  ],
+  "git.blame.statusBarItem.enabled": false,
+  "git.confirmSync": false,
+  "debug.showInStatusBar": "never",
+  "python.formatting.blackArgs": [
+    "--line-length=140"
+  ],
+  "editor.minimap.enabled": false,
+  "workbench.startupEditor": "none",
+  "claudeCode.preferredLocation": "sidebar",
+  "dart.openDevTools": "flutter",
+}
