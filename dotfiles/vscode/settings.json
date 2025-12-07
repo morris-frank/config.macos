@@ -1,108 +1,151 @@
 {
-  "workbench.colorTheme": "Ayu Mirage Bordered",
-  "workbench.preferredLightColorTheme": "Ayu Light Bordered",
-  "workbench.preferredDarkColorTheme": "Ayu Mirage Bordered",
-  "editor.inlineSuggest.enabled": true,
-  "security.workspace.trust.untrustedFiles": "open",
-  "git.autofetch": true,
+  "[css]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[dockercompose]": {
+    "editor.autoIndent": "advanced",
+    "editor.defaultFormatter": "redhat.vscode-yaml",
+    "editor.insertSpaces": true,
+    "editor.tabSize": 2
+  },
+  "[github-actions-workflow]": {
+    "editor.defaultFormatter": "redhat.vscode-yaml"
+  },
+  "[html]": {
+    "editor.defaultFormatter": "vscode.html-language-features"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[markdown]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
   "[python]": {
-    "editor.defaultFormatter": "ms-python.black-formatter"
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[shellscript]": {
+    "editor.defaultFormatter": "foxundermoon.shell-format"
+  },
+  "[svg]": {
+    "editor.defaultFormatter": "jock.svg"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "black-formatter.args": [
     "--line-length=140"
   ],
-  "prettier.printWidth": 140,
+  "breadcrumbs.icons": false,
+  "claudeCode.preferredLocation": "sidebar",
+  "cSpell.userWords": [
+    "peau"
+  ],
+  "css.validate": false,
+  "cursor.cpp.disabledLanguages": [
+    "plaintext",
+    "markdown",
+    "scminput"
+  ],
+  "cursor.cpp.enablePartialAccepts": true,
+  "cursor.windowSwitcher.sidebarHoverCollapsed": true,
+  "dart.debugExternalPackageLibraries": false,
+  "dart.debugSdkLibraries": false,
+  "dart.documentation": "summary",
+  "dart.flutterHotReloadOnSave": "allIfDirty",
+  "dart.openDevTools": "flutter",
+  "dart.previewFlutterUiGuides": true,
+  "dart.showTodos": true,
+  "debug.showInStatusBar": "never",
+  "editor.codeActionsOnSave": {
+    "source.fixAll": "explicit",
+    "source.organizeImports": "always",
+    "source.sortMembers": "explicit"
+  },
+  "editor.copyWithSyntaxHighlighting": false,
+  "editor.fontFamily": "Source Code Pro",
+  "editor.fontSize": 13,
+  "editor.formatOnSave": true,
+  "editor.inlineSuggest.enabled": true,
+  "editor.minimap.enabled": false,
+  "editor.renderWhitespace": "all",
   "editor.rulers": [
     26,
     80,
     140
   ],
-  "editor.fontFamily": "Source Code Pro",
-  "editor.fontSize": 13,
-  "editor.renderWhitespace": "all",
+  "editor.wrappingStrategy": "advanced",
   "explorer.autoReveal": false,
-  "workbench.iconTheme": "ayu",
-  "editor.copyWithSyntaxHighlighting": false,
-  "workbench.tree.renderIndentGuides": "none",
+  "explorer.confirmDragAndDrop": false,
   "files.defaultLanguage": "${activeEditorLanguage}",
-  "git.openRepositoryInParentFolders": "never",
   "files.exclude": {
     "**/__pycache__": true,
-    "work-dir": true,
-    "**/cached": true,
     "**/.pytest_cache": true,
+    "**/.trunk/*actions/": true,
+    "**/.trunk/*logs/": true,
+    "**/.trunk/*notifications/": true,
+    "**/.trunk/*out/": true,
+    "**/.trunk/*plugins/": true,
     "**/*egg-info": true,
+    "**/cached": true,
+    "work-dir": true
+  },
+  "files.watcherExclude": {
     "**/.trunk/*actions/": true,
     "**/.trunk/*logs/": true,
     "**/.trunk/*notifications/": true,
     "**/.trunk/*out/": true,
     "**/.trunk/*plugins/": true
   },
-  "jupyter.askForKernelRestart": false,
-  "explorer.confirmDragAndDrop": false,
+  "formatFiles.runOrganizeImports": true,
+  "git.autofetch": true,
+  "git.blame.statusBarItem.enabled": false,
+  "git.confirmSync": false,
   "git.enableSmartCommit": true,
-  "python.defaultInterpreterPath": "~/mamba/envs/optical_age/bin/python",
-  "[typescriptreact]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[typescript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[javascript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "typescript.updateImportsOnFileMove.enabled": "never",
+  "git.openRepositoryInParentFolders": "never",
+  "git.pruneOnFetch": true,
+  "gitlens.currentLine.format": "${author} • ${agoOrDate}",
+  "gitlens.hovers.currentLine.over": "line",
+  "gitlens.plusFeatures.enabled": false,
+  "html.format.wrapAttributes": "force-aligned",
+  "interactiveWindow.executeWithShiftEnter": true,
   "javascript.updateImportsOnFileMove.enabled": "never",
-  "[json]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[html]": {
-    "editor.defaultFormatter": "vscode.html-language-features"
-  },
-  "[css]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "css.validate": false,
-  "less.validate": false,
-  "scss.validate": false,
+  "jupyter.askForKernelRestart": false,
   "jupyter.widgetScriptSources": [
     "jsdelivr.com",
     "unpkg.com"
   ],
-  "interactiveWindow.executeWithShiftEnter": true,
-  "redhat.telemetry.enabled": false,
-  "dart.flutterHotReloadOnSave": "allIfDirty",
-  "dart.debugExternalPackageLibraries": false,
-  "dart.debugSdkLibraries": false,
-  "cursor.cpp.disabledLanguages": [
-    "plaintext",
-    "markdown",
-    "scminput"
-  ],
-  "[svg]": {
-    "editor.defaultFormatter": "jock.svg"
-  },
+  "less.validate": false,
+  "prettier.configPath": "~/.prettierrc",
+  "prettier.singleAttributePerLine": true,
   "prettier.trailingComma": "none",
-  "formatFiles.runOrganizeImports": true,
-  "editor.codeActionsOnSave": {
-    "source.fixAll": "explicit",
-    "source.organizeImports": "always",
-    "source.sortMembers": "explicit"
-  },
-  "editor.formatOnSave": true,
-  "[markdown]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "svg.preview.mode": "svg",
-  "cursor.cpp.enablePartialAccepts": true,
-  "breadcrumbs.icons": false,
-  "todohighlight.keywords": [
-    {
-      "text": "DEPRECATED:",
-      "color": "#7c2d26",
-      "backgroundColor": "#FFDAD699"
-    }
+  "python.defaultInterpreterPath": "~/mamba/envs/optical_age/bin/python",
+  "python.formatting.blackArgs": [
+    "--line-length=140"
   ],
+  "python.terminal.activateEnvInCurrentTerminal": true,
+  "redhat.telemetry.enabled": false,
+  "scss.validate": false,
+  "security.workspace.trust.untrustedFiles": "open",
+  "svg.minify.cleanupAttrs": true,
+  "svg.minify.cleanupEnableBackground": true,
+  "svg.minify.cleanupIDs": true,
+  "svg.minify.cleanupNumericValues": true,
+  "svg.minify.collapseGroups": true,
+  "svg.minify.convertStyleToAttrs": true,
+  "svg.minify.inlineStyles": true,
+  "svg.preview.mode": "svg",
+  "terminal.integrated.inheritEnv": false,
+  "terminal.integrated.scrollback": 5000,
+  "todohighlight.defaultStyle": {
+    "fontStyle": "normal",
+    "fontWeight": "bold"
+  },
   "todohighlight.include": [
     "**/*.js",
     "**/*.jsx",
@@ -115,67 +158,24 @@
     "**/*.dart",
     "**/*.py"
   ],
-  "todohighlight.defaultStyle": {
-    "fontStyle": "normal",
-    "fontWeight": "bold"
-  },
-  "dart.showTodos": true,
-  "files.watcherExclude": {
-    "**/.trunk/*actions/": true,
-    "**/.trunk/*logs/": true,
-    "**/.trunk/*notifications/": true,
-    "**/.trunk/*out/": true,
-    "**/.trunk/*plugins/": true
-  },
-  "editor.wrappingStrategy": "advanced",
-  "html.format.wrapAttributes": "force-aligned",
-  "svg.minify.cleanupIDs": true,
-  "svg.minify.collapseGroups": true,
-  "svg.minify.cleanupNumericValues": true,
-  "svg.minify.convertStyleToAttrs": true,
-  "svg.minify.inlineStyles": true,
-  "svg.minify.cleanupAttrs": true,
-  "svg.minify.cleanupEnableBackground": true,
-  "prettier.singleAttributePerLine": true,
-  "[shellscript]": {
-    "editor.defaultFormatter": "foxundermoon.shell-format"
-  },
-  "workbench.sideBar.location": "right",
+  "todohighlight.keywords": [
+    {
+      "backgroundColor": "#FFDAD699",
+      "color": "#7c2d26",
+      "text": "DEPRECATED:"
+    }
+  ],
+  "typescript.updateImportsOnFileMove.enabled": "never",
+  "workbench.colorTheme": "Ayu Mirage Bordered",
   "workbench.editor.enablePreview": false,
-  "workbench.secondarySideBar.showLabels": false,
-  "python.terminal.activateEnvInCurrentTerminal": true,
-  "terminal.integrated.inheritEnv": false,
-  "dart.documentation": "summary",
-  "cursor.windowSwitcher.sidebarHoverCollapsed": true,
   "workbench.editorAssociations": {
     "*.svg": "default"
   },
-  "terminal.integrated.scrollback": 5000,
-  "[dockercompose]": {
-    "editor.insertSpaces": true,
-    "editor.tabSize": 2,
-    "editor.autoIndent": "advanced",
-    "editor.defaultFormatter": "redhat.vscode-yaml"
-  },
-  "[github-actions-workflow]": {
-    "editor.defaultFormatter": "redhat.vscode-yaml"
-  },
-  "git.pruneOnFetch": true,
-  "dart.previewFlutterUiGuides": true,
-  "gitlens.plusFeatures.enabled": false,
-  "gitlens.currentLine.format": "${author} • ${agoOrDate}",
-  "gitlens.hovers.currentLine.over": "line",
-  "cSpell.userWords": [
-    "peau"
-  ],
-  "git.blame.statusBarItem.enabled": false,
-  "git.confirmSync": false,
-  "debug.showInStatusBar": "never",
-  "python.formatting.blackArgs": [
-    "--line-length=140"
-  ],
-  "editor.minimap.enabled": false,
+  "workbench.iconTheme": "ayu",
+  "workbench.preferredDarkColorTheme": "Ayu Mirage Bordered",
+  "workbench.preferredLightColorTheme": "Ayu Light Bordered",
+  "workbench.secondarySideBar.showLabels": false,
+  "workbench.sideBar.location": "right",
   "workbench.startupEditor": "none",
-  "claudeCode.preferredLocation": "sidebar",
-  "dart.openDevTools": "flutter",
+  "workbench.tree.renderIndentGuides": "none"
 }
