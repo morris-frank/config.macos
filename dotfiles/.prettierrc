@@ -1,0 +1,5 @@
+{
+  "plugins": ["prettier-plugin-sh"],
+  "singleAttributePerLine": true,
+  "trailingComma": "none"
+}
