@@ -8,6 +8,10 @@
     "editor.insertSpaces": true,
     "editor.tabSize": 2
   },
+  "[firerules code]": {
+    "editor.codeActionsOnSave": {},
+    "editor.formatOnSave": false
+  },
   "[github-actions-workflow]": {
     "editor.defaultFormatter": "redhat.vscode-yaml"
   },
@@ -18,6 +22,9 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[jsonc]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[markdown]": {
@@ -44,7 +51,11 @@
   "breadcrumbs.icons": false,
   "claudeCode.preferredLocation": "sidebar",
   "cSpell.userWords": [
-    "peau"
+    "Facescan",
+    "firestore",
+    "microbiome",
+    "peau",
+    "snackbars"
   ],
   "css.validate": false,
   "cursor.cpp.disabledLanguages": [
@@ -53,6 +64,7 @@
     "scminput"
   ],
   "cursor.cpp.enablePartialAccepts": true,
+  "cursor.inlineDiff.mode": "unified",
   "cursor.windowSwitcher.sidebarHoverCollapsed": true,
   "dart.debugExternalPackageLibraries": false,
   "dart.debugSdkLibraries": false,
@@ -102,6 +114,7 @@
     "**/.trunk/*out/": true,
     "**/.trunk/*plugins/": true
   },
+  "firebase.coverageFile": "",
   "formatFiles.runOrganizeImports": true,
   "git.autofetch": true,
   "git.blame.statusBarItem.enabled": false,
@@ -110,6 +123,7 @@
   "git.openRepositoryInParentFolders": "never",
   "git.pruneOnFetch": true,
   "gitlens.currentLine.format": "${author} • ${agoOrDate}",
+  "gitlens.heatmap.ageThreshold": 14,
   "gitlens.hovers.currentLine.over": "line",
   "gitlens.plusFeatures.enabled": false,
   "html.format.wrapAttributes": "force-aligned",
@@ -139,6 +153,7 @@
   "svg.minify.collapseGroups": true,
   "svg.minify.convertStyleToAttrs": true,
   "svg.minify.inlineStyles": true,
+  "svg.preview.background": "transparent",
   "svg.preview.mode": "svg",
   "terminal.integrated.inheritEnv": false,
   "terminal.integrated.scrollback": 5000,
